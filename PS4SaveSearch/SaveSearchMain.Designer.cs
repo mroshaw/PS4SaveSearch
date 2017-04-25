@@ -45,6 +45,7 @@
             this.iterationUpDown = new System.Windows.Forms.NumericUpDown();
             this.searchValueUpDown = new System.Windows.Forms.NumericUpDown();
             this.saveLabel = new System.Windows.Forms.Label();
+            this.exactMatchCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.searchResultsListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iterationUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchValueUpDown)).BeginInit();
@@ -56,15 +57,18 @@
             // 
             // saveFileTextBox
             // 
+            this.saveFileTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.saveFileTextBox.Location = new System.Drawing.Point(57, 14);
             this.saveFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveFileTextBox.Name = "saveFileTextBox";
-            this.saveFileTextBox.Size = new System.Drawing.Size(523, 22);
+            this.saveFileTextBox.Size = new System.Drawing.Size(559, 22);
             this.saveFileTextBox.TabIndex = 0;
             // 
             // openSaveButton
             // 
-            this.openSaveButton.Location = new System.Drawing.Point(585, 14);
+            this.openSaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.openSaveButton.Location = new System.Drawing.Point(622, 13);
             this.openSaveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.openSaveButton.Name = "openSaveButton";
             this.openSaveButton.Size = new System.Drawing.Size(75, 25);
@@ -108,11 +112,11 @@
             this.searchResultsListView.Cursor = System.Windows.Forms.Cursors.Default;
             this.searchResultsListView.FullRowSelect = true;
             this.searchResultsListView.GridLines = true;
-            this.searchResultsListView.Location = new System.Drawing.Point(701, 71);
+            this.searchResultsListView.Location = new System.Drawing.Point(701, 97);
             this.searchResultsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchResultsListView.Name = "searchResultsListView";
             this.searchResultsListView.ShowGroups = false;
-            this.searchResultsListView.Size = new System.Drawing.Size(345, 430);
+            this.searchResultsListView.Size = new System.Drawing.Size(345, 404);
             this.searchResultsListView.TabIndex = 4;
             this.searchResultsListView.UseCompatibleStateImageBehavior = false;
             this.searchResultsListView.View = System.Windows.Forms.View.Details;
@@ -201,6 +205,11 @@
             // iterationUpDown
             // 
             this.iterationUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iterationUpDown.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.iterationUpDown.Location = new System.Drawing.Point(765, 12);
             this.iterationUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iterationUpDown.Name = "iterationUpDown";
@@ -232,11 +241,23 @@
             this.saveLabel.TabIndex = 13;
             this.saveLabel.Text = "Save";
             // 
+            // exactMatchCheckBox
+            // 
+            this.exactMatchCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exactMatchCheckBox.AutoSize = true;
+            this.exactMatchCheckBox.Location = new System.Drawing.Point(765, 71);
+            this.exactMatchCheckBox.Name = "exactMatchCheckBox";
+            this.exactMatchCheckBox.Size = new System.Drawing.Size(162, 21);
+            this.exactMatchCheckBox.TabIndex = 14;
+            this.exactMatchCheckBox.Text = "Exact Address Match";
+            this.exactMatchCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SaveSearchMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 516);
+            this.Controls.Add(this.exactMatchCheckBox);
             this.Controls.Add(this.saveLabel);
             this.Controls.Add(this.searchValueUpDown);
             this.Controls.Add(this.iterationUpDown);
@@ -279,6 +300,7 @@
         private System.Windows.Forms.NumericUpDown iterationUpDown;
         private System.Windows.Forms.NumericUpDown searchValueUpDown;
         private System.Windows.Forms.Label saveLabel;
+        private System.Windows.Forms.CheckBox exactMatchCheckBox;
     }
 }
 

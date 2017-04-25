@@ -21,6 +21,7 @@ namespace PS4SaveSearch
         private List<SearchResult> _searchResults;
         private List<SearchResult> _incSearchResults;
         private Boolean _initialSearch;
+        private Boolean _exactMatch;
  
         /// <summary>
         /// Initialise the components and main local properties
@@ -34,6 +35,7 @@ namespace PS4SaveSearch
             _index = 1;
             searchTypeComboBox.SelectedIndex = 0;
             this.Icon = Properties.Resources.picture_find32x32;
+            _exactMatch = false;
         }
 
         /// <summary>
@@ -92,6 +94,7 @@ namespace PS4SaveSearch
         private void InitSearch()
         {
             _searchValue = (int)searchValueUpDown.Value;
+            _exactMatch = exactMatchCheckBox.Checked;
         }
 
         /// <summary>
@@ -148,18 +151,26 @@ namespace PS4SaveSearch
                     Array.Copy(_saveFileByteArray, currAddress, match, 0, patternLength);
                     if (match.SequenceEqual<byte>(pattern))
                     {
-                        // int foundIndex = FindInList(currAddress);
-                        // if (foundIndex != -1)
-                        // {
-                        // AddResult(_incSearchResults, _index, currAddress, _searchValue.ToString());
-                        AddResult(_searchResults, _index, currAddress, _searchValue.ToString());
-                        // }
+                        if (_exactMatch)
+                        {
+                            int foundIndex = FindInList(currAddress);
+                            if (foundIndex != -1)
+                            {
+                                AddResult(_incSearchResults, _index, currAddress, _searchValue.ToString());
+                            }
+                        } else
+                        {
+                            AddResult(_searchResults, _index, currAddress, _searchValue.ToString());
+                        }
                         currAddress += patternLength - 1;
                     }
                 }
             }
 
-            // _searchResults = _incSearchResults;
+            if (_exactMatch)
+            {
+                _searchResults = _incSearchResults;
+            }
             searchResultsListView.SetObjects(_searchResults);
             _iteration++;
             iterationUpDown.Value = _iteration;
