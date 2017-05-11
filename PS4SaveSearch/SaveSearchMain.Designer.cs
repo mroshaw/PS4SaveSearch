@@ -245,7 +245,7 @@
             // 
             this.exactMatchCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exactMatchCheckBox.AutoSize = true;
-            this.exactMatchCheckBox.Location = new System.Drawing.Point(765, 71);
+            this.exactMatchCheckBox.Location = new System.Drawing.Point(765, 70);
             this.exactMatchCheckBox.Name = "exactMatchCheckBox";
             this.exactMatchCheckBox.Size = new System.Drawing.Size(162, 21);
             this.exactMatchCheckBox.TabIndex = 14;
